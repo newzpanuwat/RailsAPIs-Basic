@@ -6,6 +6,9 @@ class Api::V1::UsersController < ApplicationController
     respond_with User.find(params[:id])
   end
 
+
+# Add User
+
   def create
    user=User.new(user_params) 
         # if the user is saved successfully than respond with json data and status code 201
@@ -16,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
    end
   end
 
+# Updating User
 
   def update
     user = User.find(params[:id])
@@ -26,6 +30,15 @@ class Api::V1::UsersController < ApplicationController
       render json: {errors: user.errors}, status: 422
     end    
   end
+
+# Deleting User
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    head 204
+  end
+
 
   private 
   def user_params
