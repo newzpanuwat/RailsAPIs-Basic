@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "required": [ "id", "email", "products" ],
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "email": {
+      "type": "string"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "$ref": "product.json"
+      }
+    }
+  }
+}
